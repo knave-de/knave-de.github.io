@@ -6,6 +6,8 @@ Knave is a tiling desktop environment for Linux. It arranges windows into a layo
 
 Knave is under active development. This documentation covers configuring the desktop, customizing its appearance, and building applications with its UI toolkit.
 
+[Get started with Knave](/introduction/getting-started/) to find the next steps for your desktop or the UI toolkit.
+
 ## Explore Knave
 
 - [Configure the desktop](/desktop/configuration/) to find the configuration file and available commands.
