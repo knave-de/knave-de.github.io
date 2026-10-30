@@ -110,3 +110,13 @@ Configure shadows separately for focused and unfocused windows. For example, use
 ## Effects by window state
 
 `[compositor.appearance.views.tiled]`, `.floating`, and `.maximized` each accept `gaps`, `borders`, `radius`, `shadows`, `opacity`, and `blur` booleans. They default to `true` for tiled and floating windows and `false` for maximized windows. Enabling a switch allows the corresponding configured effect; it does not change its numeric settings. Fullscreen always bypasses these effects.
+
+For example, to allow your configured borders and corner radii on maximized windows:
+
+```toml
+[compositor.appearance.views.maximized]
+borders = true
+radius = true
+```
+
+If this table already exists in your file, change its existing `borders` and `radius` values instead of adding another table header. The configured border widths and corner radii must also be greater than zero for the effects to be visible. Validate with `knave config check`, then apply with `knavectl reload`.
