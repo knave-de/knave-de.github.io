@@ -15,6 +15,8 @@ slider slider-thumb { background: var(--accent); }
 
 See [pseudo-classes and states](/css/states/), [theme variables](/css/variables/), and [cascade and inheritance](/css/cascade/) for those parts of the language.
 
+To assign a class or style ID in Rust and apply a stylesheet, follow [Styling elements](/ui/styling/). For classes supplied by the desktop shell, see [Shell styling](/desktop/styling/getting-started/).
+
 ## Elements
 
 Every retained widget has a type selector:

@@ -47,4 +47,4 @@ For example, activating the button above produces `Action::Activated(ElementId(3
 | `set_layout` | Change layout for an element. |
 | `set_style` | Change an element's style. |
 
-Element IDs identify elements in the scene. CSS classes and style IDs serve a different purpose: they select elements for styling. See [CSS selectors](/css/selectors/).
+Element IDs identify elements in the scene. CSS classes and style IDs serve a different purpose: they select elements for styling. See [Styling elements](/ui/styling/) for how to assign them and write CSS.
