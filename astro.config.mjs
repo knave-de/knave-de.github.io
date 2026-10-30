@@ -3,7 +3,9 @@ import starlight from '@astrojs/starlight';
 export default defineConfig({
   site: 'https://knave-de.github.io',
   integrations: [starlight({
-    title: 'Knave Documentation',
+    title: 'Knave',
+    logo: { src: './src/assets/knave-logo.png' },
+    favicon: '/favicon.png',
     customCss: ['./src/styles/custom.css'],
     social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/knave-de' }],
     sidebar: [

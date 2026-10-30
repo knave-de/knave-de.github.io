@@ -2,25 +2,35 @@
 title: Selectors and themes
 ---
 
-Based on the [Knave UI theme selector reference](https://github.com/knave-de/knave-ui/blob/master/docs/architecture/theme-selectors.md).
+Knave UI uses CSS to style widgets and their painted parts. Its styling engine supports a defined subset of CSS, so browser stylesheets may need changes before they work here.
 
-Knave UI implements a bounded CSS subset, not a web browser. Named themes are
-loaded from `$XDG_DATA_HOME/knave/themes/<theme-name>/light.css` or `dark.css`
-(`$XDG_DATA_HOME` defaults to `~/.local/share`). Changes are applied live.
-CSS block comments (`/* ... */`) are supported. Selectors can use a type, `.class`, `#style-id`, descendant spaces, commas and
-these states: `:hover`, `:focus`, `:pressed` (also `:active`), `:selected`,
-`:checked`, `:indeterminate`, `:expanded`, `:invalid`, `:busy`, `:enabled`,
-`:disabled` and `:root`. `*` matches retained elements. Custom properties and
-`var(--name)` are inherited; `var(--name, fallback)` is supported.
-Stylesheets cascade in five ordered layers: scheme defaults, shell/component
-styles, the selected named theme, the high-contrast or monochrome policy, then
-application overrides. A later layer always takes precedence over an earlier
-layer, even when its selector is less specific. Within one layer, normal
-specificity and later-rule ordering apply.
-Missing theme files act as an empty named-theme layer. Theme files are limited
-to 64 KiB; invalid replacements leave the last valid styles active.
-An unknown type, unsupported selector or unsupported declaration rejects the
-new stylesheet; the last valid stylesheet remains active.
+## Selectors
+
+Select elements by type, `.class`, or `#style-id`. Use spaces for descendants, commas for selector lists, and `*` to match retained elements. CSS block comments (`/* ... */`) are supported.
+
+State selectors include `:hover`, `:focus`, `:pressed` (also `:active`), `:selected`, `:checked`, `:indeterminate`, `:expanded`, `:invalid`, `:busy`, `:enabled`, `:disabled`, and `:root`.
+
+## Theme files
+
+Named themes are loaded from `$XDG_DATA_HOME/knave/themes/<theme-name>/light.css` or `dark.css`. When `XDG_DATA_HOME` is unset, it defaults to `~/.local/share`. Changes are applied live.
+
+A missing theme file acts as an empty named-theme layer. Files are limited to 64 KiB. An unknown type, unsupported selector or unsupported declaration rejects the new stylesheet, leaving the last valid stylesheet active.
+
+## Variables and cascade
+
+Custom properties are inherited. Use `var(--name)` to read one, or `var(--name, fallback)` to supply a fallback.
+
+Styles are applied in this order, from lowest to highest priority:
+
+1. Scheme defaults.
+2. Shell or component styles.
+3. The selected named theme.
+4. High-contrast or monochrome policy.
+5. Application overrides.
+
+A later layer takes precedence even when its selector is less specific. Within a layer, specificity and later-rule ordering apply.
+
+## Example
 
 ```css
 :root { --accent: #cba6f7; }
@@ -118,7 +128,7 @@ supports `normal`, `italic` and `oblique`; `font-weight` supports `normal`,
 `bold`, and numeric weights from 1 to 1000. Lengths are logical
 pixels. Colors support `#RGB`, `#RRGGBB`, `#RRGGBBAA`, `transparent`, `white`,
 `black`, `accent`, `warning`, `danger`, `text` and `background`. See
-[component coverage](widget-catalog.md) for border and layout details. The
+[component coverage](https://github.com/knave-de/knave-ui/blob/master/docs/architecture/widget-catalog.md) for border and layout details. The
 bundled defaults preserve explicit Rust background paint; a custom stylesheet
 can override it. Application-defined CSS may override the selected named theme.
 
@@ -151,3 +161,5 @@ content keeps its own colors. The policy overrides palette tokens supplied by
 a named theme. Explicit per-widget color declarations in named or application
 CSS can still override policy tokens; app-specific CSS must follow the selected
 accessibility preferences when it sets colors directly.
+
+This reference is based on the [Knave UI theme selector reference](https://github.com/knave-de/knave-ui/blob/master/docs/architecture/theme-selectors.md).

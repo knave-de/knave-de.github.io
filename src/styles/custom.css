@@ -1,2 +1,26 @@
-:root { --sl-color-accent-low: #003b4e; --sl-color-accent: #08a9d8; --sl-color-accent-high: #a7e7f6; }
-:root[data-theme='dark'] { --sl-color-bg: #17181c; --sl-color-text: #f5f6f8; }
+/* Palette adapted from Knave UI's dark.css and light.css. */
+:root, :root[data-theme='dark'] {
+  --sl-color-accent-low: #1a3443;
+  --sl-color-accent: #5dade2;
+  --sl-color-accent-high: #c5e7f9;
+  --sl-color-bg: #131519;
+  --sl-color-bg-nav: #1a1d22;
+  --sl-color-bg-sidebar: #1a1d22;
+  --sl-color-bg-inline-code: #30363e;
+  --sl-color-text: #e8ebef;
+  --sl-color-text-accent: #93cdee;
+  --sl-color-hairline-light: #2e333a;
+}
+:root[data-theme='light'] {
+  --sl-color-accent-low: #d4f0f8;
+  --sl-color-accent: #087394;
+  --sl-color-accent-high: #00516b;
+  --sl-color-bg: #f5f6f8;
+  --sl-color-bg-nav: #ffffff;
+  --sl-color-bg-sidebar: #ffffff;
+  --sl-color-bg-inline-code: #dde5ea;
+  --sl-color-text: #17181c;
+  --sl-color-text-accent: #00516b;
+  --sl-color-hairline-light: #d4dbe0;
+}
+.site-title img { border-radius: 4px; }

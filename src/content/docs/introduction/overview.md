@@ -1,6 +1,13 @@
 ---
-title: Overview
+title: What is Knave?
 ---
-Knave is an independent Linux desktop environment under active development. Knave owns desktop configuration and session lifecycle; Villain is its Wayland compositor, and Knave Shell provides desktop surfaces. Knave UI provides reusable Rust UI and rendering libraries that can also be used independently.
 
-Start with [desktop configuration](/desktop/configuration/), [Knave UI](/ui/overview/), or the [CSS reference](/css/selectors/).
+Knave is a tiling desktop environment for Linux. It arranges windows into a layout so you can work with multiple applications without manually positioning each one.
+
+Knave is under active development. This documentation covers configuring the desktop, customizing its appearance, and building applications with its UI toolkit.
+
+## Explore Knave
+
+- [Configure the desktop](/desktop/configuration/) to find the configuration file and available commands.
+- [Build with Knave UI](/ui/overview/), a Rust toolkit that can also be used independently of the desktop.
+- [Style with CSS](/css/selectors/) to learn how Knave UI selects and styles elements.
