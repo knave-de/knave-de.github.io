@@ -1,0 +1,26 @@
+{
+  "name": "knave-de.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/knave-de/knave-de.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/knave-de/knave-de.github.io/issues"
+  },
+  "homepage": "https://github.com/knave-de/knave-de.github.io#readme",
+  "dependencies": {
+    "@astrojs/starlight": "^0.42.8",
+    "astro": "^7.4.4"
+  }
+}
