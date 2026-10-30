@@ -1,5 +1,5 @@
 ---
-title: Getting Started
+title: Desktop Getting Started
 ---
 
 Knave is in active development. Choose a path below depending on whether you want to try the desktop or explore the UI toolkit.
