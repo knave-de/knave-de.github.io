@@ -51,7 +51,16 @@ banners = false
 
 `[quick_settings] charge_limit` is optional and accepts 50–100 percent. Availability depends on hardware support.
 
-`[quick_settings.night_light]` supports `enabled` (default `false`), `temperature` (default 4000, range 2500–6500), and optional `start` and `end`. Both schedule values must be supplied together, differ, and be local minutes after midnight from 0 to 1439. Omitting both uses manual mode. A schedule may cross midnight.
+Configure night light in `[quick_settings.night_light]`:
+
+| Setting | Default | Values |
+| --- | --- | --- |
+| `enabled` | `false` | `true` or `false`. |
+| `temperature` | `4000` | 2500–6500. |
+| `start` | omitted | Local minutes after midnight, 0–1439. |
+| `end` | omitted | Local minutes after midnight, 0–1439. |
+
+Set both `start` and `end` to different values to use a schedule. A schedule may cross midnight. Omit both for manual mode.
 
 ```toml
 [quick_settings.night_light]

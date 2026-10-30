@@ -50,11 +50,18 @@ workspace = 3
 name = "Picture in picture"
 [compositor.window_rules.rule.match]
 app_id = "firefox"
-title_regex = '(?i)picture[\\s-]*in[\\s-]*picture'
+title_regex = '(?i)picture[\s-]*in[\s-]*picture'
 [compositor.window_rules.rule.set]
 placement = "floating"
 center = true
 stay_on_top = true
 ```
 
-Actions are `placement` (`"tiled"` or `"floating"`), `center`, `stay_on_top`, and `workspace` (1–10). Centering implies floating. A specific rule needs at least one match condition. `name` is optional; `apply` currently accepts `"on_open"`. Invalid regular expressions and invalid workspace numbers reject the configuration. Reload changes rules for newly opened windows.
+| Action | Values | Effect |
+| --- | --- | --- |
+| `placement` | `"tiled"` or `"floating"` | Choose the initial placement. |
+| `center` | `true` or `false` | Center the window; enabling it implies floating. |
+| `stay_on_top` | `true` or `false` | Keep the window above others. |
+| `workspace` | 1–10 | Choose the initial numbered workspace. |
+
+A specific rule needs at least one match condition. `name` is optional; `apply` currently accepts `"on_open"`. Invalid regular expressions and invalid workspace numbers reject the configuration. Reload changes rules for newly opened windows.

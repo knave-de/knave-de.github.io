@@ -12,7 +12,17 @@ image = "/home/user/Pictures/wallpaper.png"
 fit = "cover"
 ```
 
-Use an absolute image path. `fit` is `"cover"` (default, centered crop), `"contain"` (whole image with black bars), or `"stretch"` (fill the screen). Omit `image` to use black. Reload starts, replaces or stops the wallpaper as needed.
+Set `image` to an absolute path. Omit it to use a black background.
+
+Choose how the image fits the screen with `fit`:
+
+| Value | Result |
+| --- | --- |
+| `"cover"` (default) | Fill the screen, cropping the image from the center if needed. |
+| `"contain"` | Show the whole image, with black bars where needed. |
+| `"stretch"` | Fill the screen by stretching the image. |
+
+Run `knavectl reload` to apply the change. Knave starts, replaces, or stops the wallpaper as needed.
 
 ## Theme
 
@@ -24,7 +34,12 @@ contrast = "standard"
 chroma = "full-color"
 ```
 
-`theme` defaults to `"knave"` and must contain only ASCII letters, digits, `_` or `-`. `mode` is `"system"` (default), `"dark"` or `"light"`; `system` currently resolves to dark in Knave UI. `contrast` is `"standard"` (default) or `"high"`; `chroma` is `"full-color"` (default) or `"monochrome"`.
+| Setting | Default | Values |
+| --- | --- | --- |
+| `theme` | `"knave"` | A name containing ASCII letters, digits, `_`, or `-`. |
+| `mode` | `"system"` | `"system"`, `"dark"`, or `"light"`. System currently resolves to dark in Knave UI. |
+| `contrast` | `"standard"` | `"standard"` or `"high"`. |
+| `chroma` | `"full-color"` | `"full-color"` or `"monochrome"`. |
 
 Named theme files are stored at `$XDG_DATA_HOME/knave/themes/<theme>/light.css` and `dark.css`, with `~/.local/share` as the usual data directory. Missing files use the bundled palette. See the [CSS reference](/css/selectors/) for supported styling. Shell surfaces may need a restart to pick up the selected scheme; application theme behavior depends on the host.
 
@@ -69,9 +84,28 @@ bottom = "#505868ff"
 left = "#505868ff"
 ```
 
-Each profile has a `blur` table: `enabled` (default `false`), `radius` (default 8, range 0–64), and `passes` (default 1, range 1–4). Blur shows through transparent window content; it does not blur the application's text.
+### Blur
 
-Each profile also has `shadows.top`, `shadows.right`, `shadows.bottom`, and `shadows.left` tables. Each side supports `enabled` (default `false`), `color` (default `"#00000060"`), `blur_radius` (default 12, 0–128), `spread` (default 0, -128–128), and `offset_x` and `offset_y` (default 0, -256–256). Positive offsets move right and down.
+Each profile has a `blur` table. Blur shows through transparent window content; it does not blur the application's text.
+
+| Setting | Default | Values |
+| --- | --- | --- |
+| `enabled` | `false` | `true` or `false` |
+| `radius` | `8` | 0–64 |
+| `passes` | `1` | 1–4 |
+
+### Shadows
+
+Each profile has `shadows.top`, `shadows.right`, `shadows.bottom`, and `shadows.left` tables. Each side supports the same settings:
+
+| Setting | Default | Values |
+| --- | --- | --- |
+| `enabled` | `false` | `true` or `false` |
+| `color` | `"#00000060"` | `#RRGGBB` or `#RRGGBBAA` |
+| `blur_radius` | `12` | 0–128 |
+| `spread` | `0` | -128–128 |
+| `offset_x` | `0` | -256–256; positive moves right. |
+| `offset_y` | `0` | -256–256; positive moves down. |
 
 ## Effects by window state
 
