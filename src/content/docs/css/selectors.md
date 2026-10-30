@@ -1,45 +1,19 @@
 ---
-title: Selectors and themes
+title: Selectors
 ---
 
 Knave UI uses CSS to style widgets and their painted parts. Its styling engine supports a defined subset of CSS, so browser stylesheets may need changes before they work here.
 
-## Selectors
+## Selector syntax
 
-Select elements by type, `.class`, or `#style-id`. Use spaces for descendants, commas for selector lists, and `*` to match retained elements. CSS block comments (`/* ... */`) are supported.
-
-State selectors include `:hover`, `:focus`, `:pressed` (also `:active`), `:selected`, `:checked`, `:indeterminate`, `:expanded`, `:invalid`, `:busy`, `:enabled`, `:disabled`, and `:root`.
-
-## Theme files
-
-Named themes are loaded from `$XDG_DATA_HOME/knave/themes/<theme-name>/light.css` or `dark.css`. When `XDG_DATA_HOME` is unset, it defaults to `~/.local/share`. Changes are applied live.
-
-A missing theme file acts as an empty named-theme layer. Files are limited to 64 KiB. An unknown type, unsupported selector or unsupported declaration rejects the new stylesheet, leaving the last valid stylesheet active.
-
-## Variables and cascade
-
-Custom properties are inherited. Use `var(--name)` to read one, or `var(--name, fallback)` to supply a fallback.
-
-Styles are applied in this order, from lowest to highest priority:
-
-1. Scheme defaults.
-2. Shell or component styles.
-3. The selected named theme.
-4. High-contrast or monochrome policy.
-5. Application overrides.
-
-A later layer takes precedence even when its selector is less specific. Within a layer, specificity and later-rule ordering apply.
-
-## Example
+Select an element by type (`button`), class (`.custom-class`), or style ID (`#element-id`). Use a space for a descendant, commas for a selector list, and `*` to match retained elements. CSS block comments (`/* ... */`) are supported.
 
 ```css
-:root { --accent: #cba6f7; }
-h1, h2, h3 { color: var(--accent); }
-subtitle { color: #a6adc8; }
 button.primary:hover { background: #585b70; }
 slider slider-thumb { background: var(--accent); }
-table-cell:selected { color: white; }
 ```
+
+See [pseudo-classes and states](/css/states/), [theme variables](/css/variables/), and [cascade and inheritance](/css/cascade/) for those parts of the language.
 
 ## Elements
 
@@ -111,55 +85,8 @@ match retained elements, not the parts.
 selectors, without classes, IDs, ancestors or state selectors. All support a
 background; tooltip also supports text properties, padding and corner radii.
 
-## Values and scope
+## Related references
 
-Retained elements support `width` and `height` in logical pixels, percentages,
-`auto` and `fit-content`. CSS dimensions override the element's Rust layout
-dimensions, and live changes remeasure the scene. Height percentages resolve
-against the available parent height. The root fills the viewport unless CSS
-explicitly sets its dimensions.
+See [properties and values](/css/properties/) for declarations and [limitations](/css/limitations/) for fixed geometry and unsupported syntax.
 
-Retained elements support color, background, opacity, padding, margin, gap,
-fonts, text alignment/wrapping, borders, corner radii and outlines. `opacity`
-accepts a number (`0` to `1`) or percentage (`0%` to `100%`); values outside
-that range are clamped. It affects the element's shapes, text (including rich
-text spans), images and descendants. `font-style`
-supports `normal`, `italic` and `oblique`; `font-weight` supports `normal`,
-`bold`, and numeric weights from 1 to 1000. Lengths are logical
-pixels. Colors support `#RGB`, `#RRGGBB`, `#RRGGBBAA`, `transparent`, `white`,
-`black`, `accent`, `warning`, `danger`, `text` and `background`. See
-[component coverage](https://github.com/knave-de/knave-ui/blob/master/docs/architecture/widget-catalog.md) for border and layout details. The
-bundled defaults preserve explicit Rust background paint; a custom stylesheet
-can override it. Application-defined CSS may override the selected named theme.
-
-`opacity` accepts a finite number from `0` through `1`. It is paint-only and
-applies to the element and its retained descendants as one isolated group, so
-overlapping opaque children are composited before the group alpha is applied.
-It is not inherited as a computed style. Menus are painted as scene-level
-overlays after the retained tree, but use their owner's cumulative opacity.
-Tooltips are painted without that group, so ancestor opacity does not dim them.
-Group nesting is limited to the scene depth (48); the
-renderer also bounds all cached and active opacity targets to 128 MiB and
-returns a typed frame error when a viewport/depth combination exceeds that
-budget. At 3840x2160, each RGBA8 target is about 31.6 MiB, so five simultaneously
-nested groups exceed the budget.
-
-Layout length, spacing and text metrics accept values up to 1,000,000 logical
-pixels. Values outside that range are rejected atomically; computed extents and
-measurer output are clamped to finite non-negative values within the same
-bound. These limits prevent overflow and unbounded coordinates, not a promise
-that every admitted size is inexpensive to rasterize.
-
-Images and swatch values are content, and explicitly colored rich-text spans
-retain their own color. A `SceneSnapshot` is a frozen display list: recapture
-it to reflect a later theme change.
-
-Contrast and chroma are independent of the dark/light scheme. High contrast
-raises text, border and focus distinctions. Monochrome maps the UI chrome
-palette to grayscales; image, color-swatch and explicitly colored rich-text
-content keeps its own colors. The policy overrides palette tokens supplied by
-a named theme. Explicit per-widget color declarations in named or application
-CSS can still override policy tokens; app-specific CSS must follow the selected
-accessibility preferences when it sets colors directly.
-
-This reference is based on the [Knave UI theme selector reference](https://github.com/knave-de/knave-ui/blob/master/docs/architecture/theme-selectors.md).
+This reference is based on the Knave UI styling implementation and its [theme selector reference](https://github.com/knave-de/knave-ui/blob/master/docs/architecture/theme-selectors.md).
