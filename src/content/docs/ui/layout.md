@@ -2,7 +2,18 @@
 title: Layout
 ---
 
-Each element has a `Layout`. A panel can arrange children with `Flow::Column`, `Flow::Row`, `Flow::Grid { columns }`, or `Flow::Overlay`. Dimensions use `Length::Px`, `Length::Percent`, `Length::Fill`, or `Length::Auto`.
+Each element has a `Layout`. A panel arranges its children according to its flow.
+
+## Choose a flow
+
+| Flow | Arrangement |
+| --- | --- |
+| `Flow::Column` | Children from top to bottom. |
+| `Flow::Row` | Children from left to right. |
+| `Flow::Grid { columns }` | Children in a grid with the specified number of columns. |
+| `Flow::Overlay` | Children in an overlay. |
+
+## Create a row
 
 ```rust
 use knave_ui::toolkit::*;
@@ -15,4 +26,14 @@ let row = Element::new(1, Widget::Panel)
     ]);
 ```
 
-Layout uses logical pixels. `padding`, `margin`, `gap`, `align`, `offset` and `clip` control spacing and placement. `Widget::Scroll` clips its content area and supports scrolling. CSS can override supported dimensions and spacing, but it does not replace the element tree or turn the toolkit into browser layout. See [CSS properties](/css/properties/).
+## Size and spacing
+
+| Field or type | Purpose |
+| --- | --- |
+| `Length::Px`, `Percent`, `Fill`, `Auto` | Size an element in logical pixels, as a percentage, to fill, or automatically. |
+| `padding`, `margin`, `gap` | Space around content, outside an element, or between children. |
+| `align`, `offset` | Align and position content. |
+| `clip` | Control child overflow. |
+| `Widget::Scroll` | Provide a scrollable container that clips its content. |
+
+CSS can override supported dimensions and spacing, but it does not replace the element tree. See [CSS properties](/css/properties/).

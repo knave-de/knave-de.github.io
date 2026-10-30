@@ -2,15 +2,42 @@
 title: Buttons and actions
 ---
 
-A button triggers an action when activated. Construct one with a stable ID and handle `Action::Activated` in your application:
+Buttons let a user trigger an action. Give each button a unique element ID so your application can identify it.
+
+## Create a button
 
 ```rust
 use knave_ui::toolkit::*;
 
-let button = Element::action_button(10, "Save", ButtonVariant::Primary);
-// Handle Action::Activated(ElementId(10)) in Application::action.
+let save = Element::action_button(10, "Save", ButtonVariant::Primary);
 ```
 
-`ButtonVariant` supports primary, secondary, ghost, destructive and icon intent. `Element::loading_button` creates a busy button; `Scene::set_enabled` controls enabled state. `Element::split_button` composes a primary action with a menu.
+When activated, the application receives `Action::Activated(ElementId(10))`. See [Elements and state](/ui/elements-state/) for handling actions.
 
-Style the variants with `button.primary`, `button.secondary`, `button.ghost`, `button.destructive`, and `button.icon`. States such as `:hover`, `:pressed`, `:focus`, `:disabled` and `:busy` are described in [states](/css/states/). The [gallery](/ui/getting-started/) shows these controls and their interaction states.
+## Variants and states
+
+| Constructor or variant | Use |
+| --- | --- |
+| `Widget::Button(label)` | Basic button. |
+| `ButtonVariant::Primary` | Main action. |
+| `ButtonVariant::Secondary` | Secondary action. |
+| `ButtonVariant::Ghost` | Low-emphasis action. |
+| `ButtonVariant::Destructive` | Destructive action. |
+| `Element::icon_button(id, image_id, &icon)` | Button containing an icon. |
+| `Element::loading_button(id, label)` | Busy button. |
+| `Element::split_button(id, primary, menu)` | Primary action and menu together. |
+
+Use `Scene::set_enabled` to enable or disable an element. The toolkit tracks focus, hover and pressed states.
+
+## Style a button
+
+| Selector | Target |
+| --- | --- |
+| `button.primary` | Primary variant. |
+| `button.secondary` | Secondary variant. |
+| `button.ghost` | Ghost variant. |
+| `button.destructive` | Destructive variant. |
+| `button.icon` | Icon variant. |
+| `button:busy` | Busy button. |
+
+For example, `button.primary:hover` targets a primary button under the pointer. See [states](/css/states/) for the available pseudo-classes.
