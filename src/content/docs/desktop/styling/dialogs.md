@@ -10,6 +10,11 @@ title: Dialogs
 | `.portal-sharing` | Active sharing indicator. |
 | `.portal-frozen` | Frozen workspace indicator. |
 | `.quick-settings-dialog`, `.quick-settings-confirm` | Quick Settings dialog and confirmation button. |
+| `.polkit-dialog` | Authentication dialog root. |
+| `.polkit-field` | Authentication input field. |
+| `.tray-menu-panel` | Tray menu panel. |
+| `.tray-menu-action` | Tray menu action. |
+| `.tray-menu-status` | Tray menu status text. |
 
 ```css
 .portal-selected { border-width: 1px; border-color: #08a9d8; }

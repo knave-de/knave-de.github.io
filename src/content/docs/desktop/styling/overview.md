@@ -2,19 +2,34 @@
 title: Overview and search
 ---
 
-| Selector | Element or state |
+Overview combines shell controls with workspace previews supplied by the compositor. Use the selectors below in your [theme file](/desktop/styling/getting-started/).
+
+## Search
+
+| Selector | What it targets |
 | --- | --- |
-| `.overview-search` | Search input. |
-| `.overview-results` | Search results area. |
-| `.overview-card-selected`, `.overview-card-idle` | Selected and unselected overview cards. |
-| `.overview-control` | Overview button controls. |
-| `.overview-muted`, `.overview-error` | Muted and error text. |
-| `.overview-tray`, `.overview-window-icon` | Overview tray and window icon. |
-| `.overview-workspace-indicator-rail` | Workspace indicator rail. |
-| `.overview-current-dot`, `.overview-workspace-dot-occupied`, `.overview-workspace-dot-empty` | Current, occupied and empty workspace indicators. |
+| `.overview-search` | The search text input. |
+| `.overview-results` | The search results panel. |
+| `.overview-muted` | Placeholder, status, and other secondary text. |
+| `.overview-error` | Error text in the footer. |
 
 ```css
-.overview-card-selected { background-color: #30363e; }
+.overview-search { border: 1px solid #08a9d8; }
+.overview-error { color: #f0767c; }
 ```
 
-Overview placement and compositor window previews depend on Rust and compositor geometry; CSS does not rearrange that composition. See [theme setup](/desktop/styling/getting-started/) and the [overview implementation](https://github.com/knave-de/knaveshell/blob/master/crates/knave-shell/src/overview/view.rs).
+## Workspace cards and controls
+
+| Selector | What it targets |
+| --- | --- |
+| `.overview-card-selected` | The current workspace card. |
+| `.overview-card-idle` | An adjacent workspace card. |
+| `.overview-control` | Overview button controls, including navigation. |
+| `.overview-tray` | The minimized-window tray on a workspace card. |
+| `.overview-window-icon` | An icon in the minimized-window tray. |
+
+Cards use compositor-provided previews. CSS can style shell elements around those previews, but does not recolor the window contents or rearrange compositor geometry.
+
+The bundled stylesheet contains older workspace-dot selectors, but the current Overview composition does not assign those classes. They are therefore not listed here as usable controls.
+
+[Source: Overview composition](https://github.com/knave-de/knaveshell/blob/master/crates/knave-shell/src/overview/view.rs).

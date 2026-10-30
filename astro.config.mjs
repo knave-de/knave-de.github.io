@@ -21,6 +21,7 @@ export default defineConfig({
         ] },
         { label: 'Shell Styling', items: [
           { label: 'Getting Started', slug: 'desktop/styling/getting-started' },
+          { label: 'Shared classes', slug: 'desktop/styling/shared' },
           { label: 'Status Bar', slug: 'desktop/styling/status-bar' },
           { label: 'Overview & Search', slug: 'desktop/styling/overview' },
           { label: 'Notifications', slug: 'desktop/styling/notifications' },
@@ -34,6 +35,7 @@ export default defineConfig({
         { label: 'Application Model', slug: 'ui/application-model' },
         { label: 'Elements & State', slug: 'ui/elements-state' },
         { label: 'Layout', slug: 'ui/layout' },
+        { label: 'Styling', slug: 'ui/styling' },
         { label: 'Widgets', items: [
           { label: 'Overview', slug: 'ui/widgets' },
           { label: 'Typography & Display', slug: 'ui/widgets/typography' },

@@ -41,7 +41,7 @@ chroma = "full-color"
 | `contrast` | `"standard"` | `"standard"` or `"high"`. |
 | `chroma` | `"full-color"` | `"full-color"` or `"monochrome"`. |
 
-Named theme files are stored at `$XDG_DATA_HOME/knave/themes/<theme>/light.css` and `dark.css`, with `~/.local/share` as the usual data directory. Missing files use the bundled palette. See the [CSS reference](/css/selectors/) for supported styling. Shell surfaces may need a restart to pick up the selected scheme; application theme behavior depends on the host.
+Named theme files are stored at `$XDG_DATA_HOME/knave/themes/<theme>/light.css` and `dark.css`, with `~/.local/share` as the usual data directory. Missing files use the bundled palette. See the [CSS reference](/css/selectors/) for supported styling. The shell watches the selected theme and configuration for changes; application theme behavior depends on the host. See [Shell styling](/desktop/styling/getting-started/) for a step-by-step example.
 
 ## Window geometry
 
