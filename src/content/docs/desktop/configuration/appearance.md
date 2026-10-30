@@ -72,7 +72,7 @@ left = 2
 
 ## Focused and unfocused windows
 
-The `focused` and `unfocused` tables under `[compositor.appearance]` have the same fields. `opacity` is 0–100 (default 100). Their `border_color` tables have `top`, `right`, `bottom`, `left`; each defaults to `"#8090b0ff"`. Colors use `#RRGGBB` or `#RRGGBBAA`.
+The `focused` settings apply to the window with keyboard focus. The `unfocused` settings apply to other windows. Both tables under `[compositor.appearance]` have the same fields. `opacity` is 0–100 (default 100). Their `border_color` tables have `top`, `right`, `bottom`, `left`; each defaults to `"#8090b0ff"`. Colors use `#RRGGBB` or `#RRGGBBAA`.
 
 ```toml
 [compositor.appearance.unfocused]
@@ -86,7 +86,7 @@ left = "#505868ff"
 
 ### Blur
 
-Each profile has a `blur` table. Blur shows through transparent window content; it does not blur the application's text.
+Configure blur separately for the focused and unfocused windows using `[compositor.appearance.focused.blur]` and `[compositor.appearance.unfocused.blur]`. Blur shows through transparent window content; it does not blur the application's text.
 
 | Setting | Default | Values |
 | --- | --- | --- |
@@ -96,7 +96,7 @@ Each profile has a `blur` table. Blur shows through transparent window content; 
 
 ### Shadows
 
-Each profile has `shadows.top`, `shadows.right`, `shadows.bottom`, and `shadows.left` tables. Each side supports the same settings:
+Configure shadows separately for focused and unfocused windows. For example, use `[compositor.appearance.focused.shadows.bottom]` for the focused window’s bottom shadow, or `[compositor.appearance.unfocused.shadows.bottom]` for unfocused windows. The available sides are `top`, `right`, `bottom`, and `left`; each supports the same settings:
 
 | Setting | Default | Values |
 | --- | --- | --- |
