@@ -6,19 +6,24 @@ Knave is in active development. Choose a path below depending on whether you wan
 
 ## Try the desktop
 
-Knave's desktop brings together the session supervisor, Villain compositor and Knave Shell. The components are developed in separate repositories, and a working session needs compatible builds of each. The Knave installer installs the CLI, control client and session supervisor; it does not install the whole desktop.
+To install the desktop, clone the four component repositories: Knave, Villain, Knave Shell, and the Knave portal backend. Build and install the first three system-wide, then install the portal backend for your user. The system installers may ask for your password through `sudo`.
 
-For a development setup, start with the [Knave development workflow](https://github.com/knave-de/knave/blob/master/docs/dev-workflow.md), which describes coordinated builds and testing. Review the [Knave README](https://github.com/knave-de/knave#installation) for the available installer modes.
-
-Once the components are installed and configured, you can inspect the configuration and session settings:
+Run the following from a directory where you want to keep the four checkouts. It requires Git, Rust and Cargo, Python 3, and the components' build dependencies. The directory names must not already exist.
 
 ```sh
-knave config path
-knave config check
-knave session check
+git clone https://github.com/knave-de/knave.git &&
+git clone https://github.com/knave-de/villain.git &&
+git clone https://github.com/knave-de/knaveshell.git &&
+git clone https://github.com/knave-de/xdg-desktop-portal-knave.git &&
+(cd knave && ./scripts/install.sh --system) &&
+(cd villain && ./scripts/install.sh --system) &&
+(cd knaveshell && ./scripts/install.sh --system) &&
+(cd xdg-desktop-portal-knave && ./scripts/install.py --user)
 ```
 
-`knave session check` validates the configuration and reports the configured backend and binaries; it does not start the desktop. See [Configuration](/desktop/configuration/) for the configuration file and related commands.
+The system installers place the desktop binaries in `/usr/local/bin`; the portal installer adds the backend and its activation files for your user. Start a fresh Knave session to activate portal routing. For coordinated source revisions and development testing, see the [development workflow](https://github.com/knave-de/knave/blob/master/docs/dev-workflow.md).
+
+For configuration, see [Desktop configuration](/desktop/configuration/).
 
 ## Explore Knave UI
 
