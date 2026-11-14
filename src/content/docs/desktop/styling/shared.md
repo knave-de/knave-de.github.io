@@ -19,4 +19,4 @@ These classes are used across shell surfaces. They are separate from generic [Kn
 
 Structural roots can cover the whole output. The bundled shell stylesheet makes `.shell-structure` and `.shell-overlay` transparent; setting a background on one can paint over a much larger area than a visible dialog or panel. Prefer a surface-specific panel class when changing a panel's background.
 
-The shared root classes are assigned by the [shell styles helper](https://github.com/knave-de/knaveshell/blob/master/crates/knave-shell-ui/src/styles/mod.rs). Other classes are assigned by individual surface compositions.
+The shared root classes are assigned by the [shell styles helper](https://github.com/knave-de/knave/blob/master/crates/knave-shell-ui/src/styles/mod.rs). Other classes are assigned by individual surface compositions.

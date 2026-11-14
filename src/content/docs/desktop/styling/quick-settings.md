@@ -41,4 +41,4 @@ Quick Settings uses shell-specific classes in addition to generic Knave UI widge
 .quick-settings-slider slider-thumb { background-color: #08a9d8; }
 ```
 
-The slider thumb is a generic Knave UI painted part. See [painted parts](/css/selectors/#painted-parts) for the properties it accepts. Layout and control behavior remain in the [Quick Settings composition](https://github.com/knave-de/knaveshell/blob/master/crates/knave-shell/src/quick_settings/view.rs).
+The slider thumb is a generic Knave UI painted part. See [painted parts](/css/selectors/#painted-parts) for the properties it accepts. Layout and control behavior remain in the [Quick Settings composition](https://github.com/knave-de/knave/blob/master/crates/knave-shell/src/quick_settings/view.rs).

@@ -43,4 +43,4 @@ Use these classes in your [theme file](/desktop/styling/getting-started/) to tar
 .notifications-critical { border: 1px solid #f0767c; }
 ```
 
-Card arrangement and behavior are controlled by the shell. [Source: notification composition](https://github.com/knave-de/knaveshell/blob/master/crates/knave-shell/src/notifications/view.rs).
+Card arrangement and behavior are controlled by the shell. [Source: notification composition](https://github.com/knave-de/knave/blob/master/crates/knave-shell/src/notifications/view.rs).

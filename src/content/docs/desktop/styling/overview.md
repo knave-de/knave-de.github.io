@@ -32,4 +32,4 @@ Cards use compositor-provided previews. CSS can style shell elements around thos
 
 The bundled stylesheet contains older workspace-dot selectors, but the current Overview composition does not assign those classes. They are therefore not listed here as usable controls.
 
-[Source: Overview composition](https://github.com/knave-de/knaveshell/blob/master/crates/knave-shell/src/overview/view.rs).
+[Source: Overview composition](https://github.com/knave-de/knave/blob/master/crates/knave-shell/src/overview/view.rs).
