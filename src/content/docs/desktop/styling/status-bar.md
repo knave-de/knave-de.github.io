@@ -66,4 +66,4 @@ Active and occupied are independent: a label can have both classes. Workspace ac
 
 The bar assigns the same base name as both a class and a style ID to its generated nodes and action targets. State classes such as `--active` are additional classes. These IDs are not unique per workspace: several nodes can share one base name.
 
-Bar geometry and hit targets are constructed by the shell; CSS is not a general mechanism for rearranging the bar. [Source: status bar composition](https://github.com/knave-de/knaveshell/blob/master/crates/knave-shell-ui/src/status_bar.rs).
+Bar geometry and hit targets are constructed by the shell; CSS is not a general mechanism for rearranging the bar. [Source: status bar composition](https://github.com/knave-de/knave/blob/master/crates/knave-shell-ui/src/status_bar.rs).

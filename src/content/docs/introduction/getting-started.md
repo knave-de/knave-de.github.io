@@ -6,18 +6,14 @@ Knave is in active development. Choose a path below depending on whether you wan
 
 ## Try the desktop
 
-To install the desktop, clone the four component repositories: Knave, Villain, Knave Shell, and the Knave portal backend. Build and install the first three system-wide, then install the portal backend for your user. The system installers may ask for your password through `sudo`.
+Install the Knave desktop from the [Knave repository](https://github.com/knave-de/knave). The portal backend is installed separately for your user.
 
-Run the following from a directory where you want to keep the four checkouts. It requires Git, Rust and Cargo, Python 3, and the components' build dependencies. The directory names must not already exist.
+Run the following from a directory where you want to keep the checkouts. It requires Git, Rust and Cargo, Python 3, and the components' build dependencies. The directory names must not already exist.
 
 ```sh
 git clone https://github.com/knave-de/knave.git &&
-git clone https://github.com/knave-de/villain.git &&
-git clone https://github.com/knave-de/knaveshell.git &&
 git clone https://github.com/knave-de/xdg-desktop-portal-knave.git &&
 (cd knave && ./scripts/install.sh --system) &&
-(cd villain && ./scripts/install.sh --system) &&
-(cd knaveshell && ./scripts/install.sh --system) &&
 (cd xdg-desktop-portal-knave && ./scripts/install.py --user)
 ```
 
